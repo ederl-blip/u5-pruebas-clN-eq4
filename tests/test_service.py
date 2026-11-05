@@ -21,7 +21,7 @@ def test_gateway_rejected():
 def test_gateway_rejected_vip_200():
     gateway = Mock()
     gateway.charge.return_value = False                 # la pasarela rechaza
-    with pytest.raises(RuntimeError, match="payment rejected"):
+    with pytest.raises(RuntimeError, match="El pago fue rechazado. Intenta con otro método de pago"):
         OrderService(gateway).checkout(Order(200, vip=True))
     gateway.charge.assert_called_once_with(170)         # se intentó cobrar 170, una sola vez
 

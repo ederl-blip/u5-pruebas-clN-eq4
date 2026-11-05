@@ -33,5 +33,5 @@ def test_regular_no_discount_200():
 def test_cannot_confirm_twice():
     order = Order(100)
     order.confirm()
-    with pytest.raises(ValueError, match="already confirmed"):
+    with pytest.raises(ValueError, match="El pedido ya fue confirmado y no puede confirmarse de nuevo"):
         order.confirm()

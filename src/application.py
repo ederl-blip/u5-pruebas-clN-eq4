@@ -5,5 +5,5 @@ class OrderService:
     def checkout(self, order):
         amount = order.confirm()
         if not self.gateway.charge(amount):
-            raise RuntimeError("payment rejected")
+            raise RuntimeError("El pago fue rechazado. Intenta con otro método de pago")
         return amount
